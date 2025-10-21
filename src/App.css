@@ -1,38 +1,417 @@
-.App {
+/* ===== Layout Base ===== */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Raleway', sans-serif;
+  color: #3c2f2f;
+  background-color: #fdfaf6;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.04) 1px, transparent 0),
+    radial-gradient(circle at 2px 2px, rgba(0, 0, 0, 0.02) 1px, transparent 0);
+  background-size: 12px 12px;
+}
+
+/* Make footer stick to bottom */
+#root, .App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+/* ===== Header ===== */
+.header {
+  text-align: center;
+  padding: 20px;
+  border-bottom: 2px solid #e2d9cf;
+  background-color: #f9f5ef;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  margin: 0;
+  color: #3b2d2d;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+nav ul li {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #4a3b2f;
+  font-weight: 500;
+  transition: color 0.2s ease, border-bottom 0.2s ease;
+}
+
+nav a:hover {
+  color: #b89f7a;
+}
+
+nav a.active {
+  border-bottom: 2px solid #b89f7a;
+}
+
+/* ===== Pages ===== */
+.page h2 {
+  font-family: 'Playfair Display', serif;
+  color: #4a3b2f;
+  margin-bottom: 10px;
+}
+
+.page p {
+  font-size: 1rem;
+  color: #5c4b3b;
+  line-height: 1.6;
+}
+
+.menu-list {
+  list-style: none;
+  padding: 0;
+}
+
+.menu-list li {
+  margin: 8px 0;
+  font-size: 1.1rem;
+}
+
+/* ===== Footer ===== */
+.footer {
+  text-align: center;
+  padding: 20px;
+  border-top: 2px solid #e2d9cf;
+  background-color: #f9f5ef;
+  font-size: 0.9rem;
+  color: #6c5a4f;
+}
+
+.footer p {
+  margin: 5px 0;
+}
+
+/* --- Home Page Additions --- */
+
+.hero-section {
+  position: relative;
+  text-align: center;
+  color: #fff;
+}
+
+.hero-image {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  filter: brightness(70%);
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+}
+
+.hero-button {
+  display: inline-block;
+  margin-top: 15px;
+  background-color: #b89f7a;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.hero-button:hover {
+  background-color: #a58865;
+}
+
+/* Welcome Section */
+.welcome-section {
+  padding: 60px 20px;
+}
+
+.welcome-section img {
+  width: 80%;
+  max-width: 600px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+/* Featured Menu */
+.featured-section {
+  background-color: #f9f5ef;
+  padding: 60px 20px;
+}
+
+.featured-items {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.featured-card {
+  width: 280px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  padding: 15px;
+}
+
+.featured-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+}
+
+.featured-button {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 10px 20px;
+  background-color: #b89f7a;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.featured-button:hover {
+  background-color: #a58865;
+}
+
+/* Testimonials */
+.testimonial-section {
+  padding: 60px 20px;
+}
+
+.testimonials {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 25px;
+}
+
+.testimonial-card {
+  background: #fff;
+  width: 280px;
+  border-radius: 12px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  padding: 20px;
+  font-style: italic;
+}
+
+.testimonial-card span {
+  display: block;
+  margin-top: 10px;
+  font-weight: 600;
+  color: #6c5a4f;
+}
+
+/* Newsletter */
+.newsletter-section {
+  background-color: #f9f5ef;
+  padding: 60px 20px;
+}
+
+.newsletter-form {
+  margin-top: 20px;
+}
+
+.newsletter-input {
+  padding: 10px;
+  width: 250px;
+  border: 1px solid #d3c6b6;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.newsletter-button {
+  padding: 10px 20px;
+  background-color: #b89f7a;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.newsletter-button:hover {
+  background-color: #a58865;
+}
+
+/* --- About Page Additions --- */
+
+.about-intro, .about-journey, .about-mission, .about-coffee {
+  padding: 60px 20px;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-intro p, 
+.about-journey p,
+.about-coffee p {
+  line-height: 1.7;
+  color: #4a3b2f;
+}
+
+.journey-images {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.journey-images img {
+  width: 280px;
+  border-radius: 10px;
+}
+
+.values-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.value-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  width: 260px;
+  padding: 20px;
+}
+
+.value-card h3 {
+  color: #3b2d2d;
+}
+
+.coffee-image {
+  margin-top: 25px;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 10px;
+}
+
+/* --- Menu Page Additions --- */
+
+.menu-hero {
+  position: relative;
+  text-align: center;
+  color: #fff;
+}
+
+.menu-hero-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  filter: brightness(70%);
+}
+
+.menu-hero-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.menu-hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+}
+
+.menu-hero-subtext {
+  margin-top: 10px;
+  font-size: 1.1rem;
+}
+
+.menu-section {
+  padding: 60px 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.menu-table {
+  width: 90%;
+  max-width: 800px;
+  margin: 25px auto;
+  border-collapse: collapse;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.menu-table th, .menu-table td {
+  border-bottom: 1px solid #d3c6b6;
+  padding: 12px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.menu-table th {
+  background-color: #f9f5ef;
+  color: #3c2f2f;
+}
+
+.menu-table td {
+  color: #4a3b2f;
+}
+
+.pastry-gallery {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 30px;
 }
 
-.App-link {
-  color: #61dafb;
+.pastry-card {
+  background: #fff;
+  width: 250px;
+  border-radius: 12px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  padding: 15px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.pastry-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.pastry-card h3 {
+  margin-top: 10px;
+  color: #3b2d2d;
+}
+
+.pastry-card span {
+  display: block;
+  margin-top: 5px;
+  color: #6c5a4f;
+  font-weight: bold;
+}
+
+.addons-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  line-height: 1.8;
+  color: #4a3b2f;
 }
